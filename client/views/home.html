@@ -1,21 +1,22 @@
 <template name="home">
   <div class="container">
-    <div class="">
-      <h1>Hello Meteorites!</h1>
-      <p>
-        If you'd like to discover more about useraccounts packages for
-        <a href="https://www.meteor.com/">Meteor</a>, you can have a
-        <a href="https://atmospherejs.com/useraccounts">look at them on Atmosphere</a>
-        or at the
-        <a href="https://github.com/meteor-useraccounts/">meteor-useraccounts GitHub organization</a>
-      </p>
-      <p>
-        Head instead to the
-        <a href="https://github.com/meteor-useraccounts/core/blob/master/Guide.md">Guide</a>
-        to read a bit of documentation, or lets have a look at the
-        <a href="https://github.com/meteor-useraccounts/boilerplates">boilerplates</a>
-        for a quick start!
-      </p>
+    <div class="col-sm-offset-3 col-sm-6 ">
+      {{#if currentUser}}
+        <h1 style="margin-top: 70px">You're not on the wrong site</h1>
+        <p>
+          We're using a separate site to manage our admin (control panel).<br/>
+          Why? Because both sites are running different architectures (this one has more complex back-end). To put it simply, I discovered new techniques to build the functionalities and I realized I can do it better when I separate back-end and front-end components. Less distractions.
+        </p>
+        <h3>To put it simply</h3>
+        <p>
+          Both sites (this and kakalocal.com) are connected to the same centralized database where changes done here are directly reflected on the main site (I have not yet connect them, because on second thought, direct changes might be disastrous so I'm thinking up a countermeasure for it first).
+        </p>
+        <p>
+          The idea is to hide this site from public reach. I learned this from SAYS and 8Share where they have separate administration site too because they experience occasional attacks from time to time. In the event that says.com is down or attacked, for example, there's nothing really to be gained there since it only has read access to the database. All the important thing is in the admin site itself, which you won't know unless you worked inside and it also has manual sign up system.
+        </p>
+      {{else}}
+        <h1>Under Construction</h1>
+      {{/if}}
     </div>
   </div>
 </template>

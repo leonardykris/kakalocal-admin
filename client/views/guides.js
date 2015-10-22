@@ -7,7 +7,12 @@ Template.guides.helpers({
 			fields: [
 				{ key: 'firstName', label: 'First Name' },
 				{ key: 'lastName', label: 'Last Name' },
-				{ key: 'phone', label: 'Contact No.' },
+				{ key: 'phone', label: 'Contact No.', hidden: true },
+				{ key: 'email', label: 'Email' },
+				{ key: 'country', label: 'Country' },
+				{ key: 'city', label: 'City', hidden: true },
+				{ key: 'referrer', label: 'Referrer', hidden: true },
+				{ key: 'remarks', label: 'Remarks', hidden: true },
 				{
 					key: 'updatedAt',
 					label: 'Last Updated',
@@ -34,13 +39,17 @@ Template.guides.helpers({
 		else {
 			return "insert";
 		}
-	}
+	},
 });
 
 Template.guides.events({
 	'click tr': function(){
 		// console.log(this._id);
 		Session.set("selectedGuideId", this._id);
+	},
+	'click #resetForm': function(){
+		Session.set("selectedGuideId", null);
+		AutoForm.resetForm("guideForm");
 	}
 });
 
