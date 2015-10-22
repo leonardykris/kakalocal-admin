@@ -1,0 +1,10 @@
+<template name="guides">
+<div class="container">
+	<div class="col-sm-8">
+		{{> reactiveTable settings=tableSettings}}
+	</div>
+	<div class="col-sm-4">
+		{{> quickForm id="guideForm" schema=Schemas.GuideForm type=formType doc=selectedGuideDoc}}
+	</div>
+</div>
+</template>
