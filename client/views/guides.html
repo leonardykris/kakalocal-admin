@@ -1,11 +1,7 @@
 <template name="guides">
 <div class="container">
-	<div class="col-sm-8">
+	<div class="col-sm-12">
 		{{> reactiveTable settings=tableSettings}}
-	</div>
-	<div class="col-sm-4">
-		{{> quickForm id="guideForm" schema=Schemas.GuideForm type="method" meteormethod="submitForm" doc=selectedGuideDoc}}
-		<button id="resetForm" type="reset" class="btn btn-default" style="margin-bottom: 30px;">Reset Form</button>
 	</div>
 </div>
 </template>
