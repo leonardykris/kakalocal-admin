@@ -1,0 +1,51 @@
+<template name="guideDetails">
+<div class="container">
+	<!-- <div class="row">
+		<div class="col-sm-12">
+			<u><h3></h3></u>
+		</div>
+	</div> -->
+	{{#autoForm id="updateGuideForm" type="method" meteormethod="submitForm" schema=Schemas.GuideForm doc=selectedGuideDoc}}
+	<fieldset>
+		<legend>Updating Guide: {{this.firstName}} {{this.lastName}}</legend>
+		<div class="row">
+			<div class="col-sm-3">
+				{{> afQuickField name="_id"}}
+				{{> afQuickField name="type"}}
+				{{> afQuickField name="firstName"}}
+				{{> afQuickField name="lastName"}}
+				{{> afQuickField name="pictureURL"}}
+				{{> afQuickField name="phone"}}
+				{{> afQuickField name="email"}}
+				{{> afQuickField name="country" options="allowed"}}
+				{{> afQuickField name="city" options="allowed"}}
+				{{> afQuickField name="remarks" options="allowed"}}
+				{{> afQuickField name="referrer" options="allowed"}}
+				{{> afQuickField name="status"}}
+				{{> afQuickField name="description"}}
+				{{> afQuickField name="feePerDay"}}
+				{{> afQuickField name="updatedAt"}}
+				{{> afQuickField name="createdAt"}}
+			</div>
+			<div class="col-sm-5">
+				{{> afQuickField name="highlights"}}
+				{{> afQuickField name="activities"}}
+				{{> afQuickField name="inclusions"}}
+				{{> afQuickField name="exclusions"}}
+			</div>
+			<div class="col-sm-4">
+				{{> afQuickField name="languages"}}
+				{{> afQuickField name="experiences"}}
+				{{> afQuickField name="certifications"}}
+				{{> afQuickField name="tags"}}
+			</div>
+		</div>
+	</fieldset>
+	<div class="form-group">
+		<button type="submit" class="btn btn-success">Update</button>
+	</div>
+	{{/autoForm}}
+
+
+</div>
+</template>
