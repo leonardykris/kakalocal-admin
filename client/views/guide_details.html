@@ -55,6 +55,15 @@
 				Update
 			{{/if}}
 		</button>
+		{{#if isActivePath path='/guides/new'}}
+		{{else}}
+			{{#if this.isPublished}}
+				<a id="unPublishButton" class="btn btn-default">Unpublish Guide</a>
+			{{else}}
+				<a id="publishButton" class="btn btn-default">Publish Guide</a>
+			{{/if}}
+		{{/if}}
+
 	</div>
 	{{/autoForm}}
 

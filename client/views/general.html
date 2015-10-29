@@ -5,23 +5,52 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Standard Operating Procedures</div>
 				<div class="list-group">
+					<a href="#addUsers" class="list-group-item">
+						<span class="badge">admins</span>
+						Add Users
+					</a>
+					<a href="#updateUsers" class="list-group-item">
+						<span class="badge">admins</span>
+						Update Users
+					</a>
+					<a href="#publishUsers" class="list-group-item">
+						<span class="badge">admins</span>
+						Publish Users
+					</a>
 					<a href="#reservation" class="list-group-item">
 						<span class="badge">users</span>
 						Reservation
 					</a>
 					<a href="#payment" class="list-group-item">
-						<span class="badge">juliene</span>
+						<span class="badge">finances</span>
 						Payment
 					</a>
 					<a href="#refund" class="list-group-item">
-						<span class="badge">juliene</span>
+						<span class="badge">finances</span>
 						Refund
 					</a>
 				</div>
 			</div>
 		</div>
-		<div class="col-sm-9">
+		<div class="col-sm-6">
 			<h2 id="standardOperatingProcedures" style="margin-top: 0px;">Standard Operating Procedures</h2>
+			<h3 id="addUsers">Add Users</h3>
+			<ol>
+				<li>Navigate to <a href="{{pathFor 'guides'}}">Guides</a> tab.</li>
+				<li>Click on the "Add New Guide" button located on the bottom left corner.</li>
+				<li>Fill up user's information.</li>
+			</ol>
+			<p><i>Note: You can continuously add more users after you're done adding one.</i></p>
+			<h3 id="updateUsers">Update Users</h3>
+			<ol>
+				<li>Navigate to <a href="{{pathFor 'guides'}}">Guides</a> tab.</li>
+				<li>Click on the row representing the target user.</li>
+				<li>Update the information on the available fields.</li>
+				<li>Click the "Update" button on the bottom left corner.</li>
+			</ol>
+			<h3 id="publishUsers">Publish Users</h3>
+			<p>Publishing users is only possible after you have added them. That being said, you can follow the navigation provided above for "Update Guides" and click on the "Publish Guide" button instead. This feature allows the guides being managed here in the admin panel to be searchable/findable in the core application.</p>
+			<p><i>Note: Please save your changes first if you're updating a guide before publishing it. </i></p>
 			<h3 id="reservation">Reservation</h3>
 			<ol>
 				<li>User landed on the site.</li>
