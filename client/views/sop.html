@@ -1,0 +1,101 @@
+<template name="addUser">
+### Add User
+
+1. Navigate to [Guides](/guides) tab.
+2. Click on the "Add New Guide" button located on the bottom left corner.
+3. Fill up user's information.
+
+*Note: You can continuously add more users after you're done adding one.*
+</template>
+
+<template name="updateUser">
+### Update User
+
+1. Navigate to [Guides](/guides) tab.
+2. Click on the row representing the target user.
+3. Update the information on the available fields.
+4. Click the "Update" button on the bottom left corner.
+</template>
+
+<template name="publishUser">
+### Publish User
+
+Publishing users is only possible after you have added them. That being said, you can follow the navigation provided above for "Update Guides" and click on the "Publish Guide" button instead. This feature allows the guides being managed here in the admin panel to be searchable/findable in the core application.
+
+*Note: Please save your changes first if you're updating a guide before publishing it.*
+</template>
+
+<template name="reservationGuide">
+### Reservation
+
+1. User landed on the site.
+2. User searched for destination.
+3. User defined a filter.
+4. User chose a guide.
+5. User finished inputting details.
+6. User submitted reservation form.
+</template>
+
+<template name="paymentGuide">
+### Payment
+
+1. *User receive confirmation email that his request is currently being processed.*
+
+  We currently use Postmark to handle this, but we're switching to SendGrid because it has better admin panel that let us see the analytics. In near future, this will change again as we will be using Mailchimp and Mandrill integration together. It's just that we don't have time to fix Mandrill now.
+
+2. *The result of the users' reservation will appear tabulated in this admin panel*
+
+  As we're doing this manually because we do not have an authorized payment gateway (we hacked it with PayPal's Money Request), an Admin, probably Juliene will have to check on each reservations to confirm their legibility. I will create another tab called 'Transactions'.
+
+3. *Admin issue an invoice using PayPal's Create Invoice function*
+
+  The details needed to use this function:
+
+    Invoice Number
+    Invoice Date
+    Payment Terms (Set to Due on Receipt)
+    Reference
+    Recipient's Email Address
+    Item Name
+    Item Fee
+    Description
+    Terms and Condition
+    Discount Rate (Optional)
+
+    <img src="/imgs/PayPal_Create_Invoice_1.png" class="img img-responsive" alt="Create Invoice 1">
+
+    <img src="/imgs/PayPal_Create_Invoice_2.png" class="img img-responsive" alt="Create Invoice 2">
+
+4. User receives an email from PayPal with the invoice that links to payment's page
+
+  The email is automatically sent from PayPal's server. It will look like this:
+
+  <img src="/imgs/PayPal_Email_Payment_Requested.png" class="img img-responsive" alt="PayPal's Email">
+</template>
+
+<template name="refundGuide">
+### Refund
+
+1. In the event of refund, we have not yet set a channel for this
+
+  It means that users will be contacting us either through:
+
+  * finance@kakalocal.com
+  * hello@kakalocal.com
+  * juliene@kakalocal.com
+  * Facebook
+  * Twitter
+  * A Phone Number
+
+  It will be really confusing to handle problems/reports this way, and thus this is the reason why we need to use [Intercom's service to streamline them](https://www.intercom.io/pricing/combination).
+
+2. Nevertheless, in the event of refund, we need to define the policy
+
+  Are we returning 100%? 90%? Anyway, we can see the transactions and the option to refund from the PayPal's main dashboard
+
+  <img src="/imgs/PayPal_Transactions.png" class="img img-responsive" alt="PayPal's Transactions">
+
+  And further, after clicking on the button a new page will appear to input how much we're going to refund the user. The original amount paid by the user will be shown. There's also an option to enter Invoice Number and Note to Buyer (please get the Invoicing Number thing ready).
+
+  <img src="/imgs/PayPal_Issue_Refund.png" class="img img-responsive" alt="PayPal's Issue Refund">
+</template>

@@ -5,135 +5,21 @@
 			<div class="panel panel-default">
 				<div class="panel-heading">Standard Operating Procedures</div>
 				<div class="list-group">
-					<a href="#addUsers" class="list-group-item">
-						<span class="badge">admins</span>
-						Add Users
-					</a>
-					<a href="#updateUsers" class="list-group-item">
-						<span class="badge">admins</span>
-						Update Users
-					</a>
-					<a href="#publishUsers" class="list-group-item">
-						<span class="badge">admins</span>
-						Publish Users
-					</a>
-					<a href="#reservation" class="list-group-item">
-						<span class="badge">users</span>
-						Reservation
-					</a>
-					<a href="#payment" class="list-group-item">
-						<span class="badge">finances</span>
-						Payment
-					</a>
-					<a href="#refund" class="list-group-item">
-						<span class="badge">finances</span>
-						Refund
-					</a>
+					<!-- For editing, please find sop_nav.html -->
+					{{> sopNav}}
 				</div>
 			</div>
 		</div>
 		<div class="col-sm-6">
 			<h2 id="standardOperatingProcedures" style="margin-top: 0px;">Standard Operating Procedures</h2>
-			<h3 id="addUsers">Add Users</h3>
-			<ol>
-				<li>Navigate to <a href="{{pathFor 'guides'}}">Guides</a> tab.</li>
-				<li>Click on the "Add New Guide" button located on the bottom left corner.</li>
-				<li>Fill up user's information.</li>
-			</ol>
-			<p><i>Note: You can continuously add more users after you're done adding one.</i></p>
-			<h3 id="updateUsers">Update Users</h3>
-			<ol>
-				<li>Navigate to <a href="{{pathFor 'guides'}}">Guides</a> tab.</li>
-				<li>Click on the row representing the target user.</li>
-				<li>Update the information on the available fields.</li>
-				<li>Click the "Update" button on the bottom left corner.</li>
-			</ol>
-			<h3 id="publishUsers">Publish Users</h3>
-			<p>Publishing users is only possible after you have added them. That being said, you can follow the navigation provided above for "Update Guides" and click on the "Publish Guide" button instead. This feature allows the guides being managed here in the admin panel to be searchable/findable in the core application.</p>
-			<p><i>Note: Please save your changes first if you're updating a guide before publishing it. </i></p>
-			<h3 id="reservation">Reservation</h3>
-			<ol>
-				<li>User landed on the site.</li>
-				<li>User searched for destination.</li>
-				<li>User defined a filter.</li>
-				<li>User chose a guide.</li>
-				<li>User finished inputting details.</li>
-				<li>User submitted reservation form.</li>
-			</ol>
-			<h3 id="payment">Payment</h3>
-			<ol>
-				<li>
-					<u>User receive confirmation email that his request is currently being processed.</u>
-					<p>
-						We currently use Postmark to handle this, but we're switching to SendGrid because it has better admin panel that let us see the analytics. In near future, this will change again as we will be using Mailchimp and Mandrill integration together. It's just that we don't have time to fix Mandrill now.
-					</p>
-				</li>
-				<li>
-					<u>The result of the users' reservation will appear tabulated in this admin panel</u>
-					<p>
-						As we're doing this manually because we do not have an authorized payment gateway (we hacked it with PayPal's Money Request), an Admin, probably Juliene will have to check on each reservations to confirm their legibility. I will create another tab called 'Transactions'.
-					</p>
-				</li>
-				<li>
-					<u>Admin issue an invoice using PayPal's Create Invoice function</u>
-					<p>
-						The details needed to use this function:
-						<ol>
-							<li>Invoice Number</li>
-							<li>Invoice Date</li>
-							<li>Payment Terms (Set to Due on Receipt)</li>
-							<li>Reference</li>
-							<li>Recipient's Email Address</li>
-							<li>Item Name</li>
-							<li>Item Fee</li>
-							<li>Description</li>
-							<li>Terms and Condition</li>
-							<li>Discount Rate (Optional)</li>
-						</ol>
-						<img src="/imgs/PayPal_Create_Invoice_1.png" class="img img-responsive" alt="Create Invoice 1">
-						<img src="/imgs/PayPal_Create_Invoice_2.png" class="img img-responsive" alt="Create Invoice 2">
-					</p>
-				</li>
-				<li>
-					<u>User receives an email from PayPal with the invoice that links to payment's page</u>
-					<p>
-						The email is automatically sent from PayPal's server. It will look like this:
-						<img src="/imgs/PayPal_Email_Payment_Requested.png" class="img img-responsive" alt="PayPal's Email">
-					</p>
-				</li>
-			</ol>
-			<h3 id="refund">Refund</h3>
-			<ol>
-				<li>
-					<u>In the event of refund, we have not yet set a channel for this</u>
-					<p>
-						It means that users will be contacting us either through:
-						<ol>
-							<li>finance@kakalocal.com</li>
-							<li>hello@kakalocal.com</li>
-							<li>juliene@kakalocal.com</li>
-							<li>Facebook</li>
-							<li>Twitter</li>
-							<li>A Phone Number</li>
-						</ol>
-						It will be really confusing to handle problems/reports this way, and thus this is the reason why we need to use <a href="https://www.intercom.io/pricing/combination">Intercom's service to streamline them.</a>
-					</p>
-				</li>
-				<li>
-					<u>Nevertheless, in the event of refund, we need to define the policy</u>
-					<p>
-						Are we returning 100%? 90%? Anyway, we can see the transactions and the option to refund from the PayPal's main dashboard
-						<img src="/imgs/PayPal_Transactions.png" class="img img-responsive" alt="PayPal's Transactions">
-						And further, after clicking on the button a new page will appear to input how much we're going to refund the user. The original amount paid by the user will be shown. There's also an option to enter Invoice Number and Note to Buyer (please get the Invoicing Number thing ready).
-						<img src="/imgs/PayPal_Issue_Refund.png" class="img img-responsive" alt="PayPal's Issue Refund">
-					</p>
-				</li>
-			</ol>
+			<!-- For editing, please find sop.html -->
+			{{#markdown}}{{> addUser}}{{/markdown}}
+			{{#markdown}}{{> updateUser}}{{/markdown}}
+			{{#markdown}}{{> publishUser}}{{/markdown}}
+			{{#markdown}}{{> reservationGuide}}{{/markdown}}
+			{{#markdown}}{{> paymentGuide}}{{/markdown}}
+			{{#markdown}}{{> refundGuide}}{{/markdown}}
 		</div>
-		<!-- <div class="col-sm-3">
-			<p>
-			</p>
-		</div> -->
 	</div>
 </div>
 </template>

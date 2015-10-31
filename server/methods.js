@@ -36,7 +36,7 @@ Meteor.methods({
 	// This publishGuide method can both publish and unpublish a guide based on the params passed onto it
 	publishGuide: function(doc, params) {
 		console.log("Client has called publishGuide method.");
-		var params = params;
+		check(params, Boolean);
 
 		// We do triple checking here before get to update the collection
 		// 1. Whether the document is properly passed
