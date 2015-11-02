@@ -2,30 +2,41 @@ Meteor.methods({
 	submitForm: function(doc) {
 		console.log("Client has called submitForm method.")
 		if (doc) {
-			// try {
-			// 	check(doc, Schemas.GuideForm);
-			// 	Schemas.GuideForm.clean(doc);
-			// } catch (e) {
-			// 	throw new Meteor.Error(e);
-			// }
+			try {
+				check(doc, Schemas.GuideForm);
+				Schemas.GuideForm.clean(doc);
+				console.log(doc);
+			} catch (e) {
+				throw new Meteor.Error(e);
+			}
 			if (doc._id) {
 				if (Guides.findOne({ _id: doc._id })) {
 					console.log(doc._id + " exists! It was last updated on " + doc.updatedAt + ".");
 					doc.updatedAt = moment().format();
 
+					console.log(doc);
 					Guides.update({ _id: doc._id }, { $set: doc }, function(error, result){
-						if (!error) { console.log(result + " document(s) have been updated."); return true; }
-						else { console.log(error); }
+						if (error) {
+							console.log("error");
+						} else {
+							console.log(result + " document(s) have been updated.");
+						}
 					});
+
+					console.log("test after update")
 				} else { console.log("Document with _id " + doc._id + " was not found."); }
 			} else {
 				// Assign _id here, because if it's in client it will keep spawning the _id even if selected user already have it
 				doc._id = Random.id();
 				doc.updatedAt = doc.createdAt = moment().format();
+				console.log(doc);
 
 				Guides.insert(doc, function(error, result){
-					if (!error) { console.log(result + " has been inserted."); return true; }
-					else { console.log(error); }
+					if (error) {
+						console.log(error);
+					} else {
+						console.log(result + " has been inserted.");
+					}
 				});
 			}
 		} else { console.log("Document does not exist."); }

@@ -4,13 +4,26 @@ Template.guideDetails.helpers({
     if (this) { return this; }
     else { return null; }
 	},
+  showPicture: function() {
+    if (this.hasOwnProperty('pictureURL')) {
+      var image = Images.findOne({ _id: this.pictureURL });
+      console.log(image);
+      return image;
+    } else {
+      return "No image was found.";
+    }
+  }
 });
 
 Template.guideDetails.onRendered(function() {
+  // Run holder
+  window.Holder.run();
+
   // Change the colors of the + and - buttons
 	$('.autoform-add-item').removeClass('btn-primary').addClass('btn-default');
 	$('.autoform-remove-item').removeClass('btn-primary').addClass('btn-default');
 
+  // Add hooks for Meteor method
   AutoForm.addHooks(
     ["updateGuideForm"],
     {

@@ -1,69 +1,75 @@
 <template name="guideDetails">
-<div class="container">
-	<!-- <div class="row">
-		<div class="col-sm-12">
-			<u><h3></h3></u>
-		</div>
-	</div> -->
+<div class="container" style="margin-top: 40px; margin-bottom: 120px;">
 	{{#autoForm id="updateGuideForm" type="method" meteormethod="submitForm" schema=Schemas.GuideForm doc=selectedGuideDoc}}
 	<fieldset>
 		<legend>
 			{{#if isActivePath path='/guides/new'}}
-				Add Guide
+				<h3>Add Guide</h3>
 			{{else}}
-				Updating Guide: {{this.firstName}} {{this.lastName}}
+				<h3>Updating Guide: {{this.firstName}} {{this.lastName}}</h3>
 			{{/if}}
 		</legend>
 		<div class="row">
+			<div class="col-sm-3">
+				{{#if isActivePath path='/guides/new'}}
+					<img src="holder.js/300x300?auto=yes&text=No image found" alt="image" class="img img-responsive" style="margin-bottom: 10px;">
+				{{else}}
+					{{#with showPicture}}
+						{{#if this.url}}
+							<img src="{{this.url}}" alt="image" class="img img-responsive" style="margin-bottom: 10px;">
+						{{else}}
+							<img src="holder.js/300x300?auto=yes&text=No image found" alt="image" class="img img-responsive" style="margin-bottom: 10px;">
+						{{/if}}
+					{{/with}}
+				{{/if}}
+				{{> afQuickField name="pictureURL"}}
+				<div class="well">
+					<b>Guideline in Adding Guides:</b>
+					<p>Please note that few fields like first name, email address and country/city of origin is necessary to register a guide.</p>
+				</div>
+			</div>
+			<div class="col-sm-6">
+				{{> afQuickField name="description"}}
+				{{> afQuickField name="activities"}}
+				{{> afQuickField name="experiences"}}
+				{{> afQuickField name="certifications"}}
+				{{> afQuickField name="tags"}}
+			</div>
 			<div class="col-sm-3">
 				{{> afQuickField name="_id"}}
 				{{> afQuickField name="type"}}
 				{{> afQuickField name="firstName"}}
 				{{> afQuickField name="lastName"}}
-				{{> afQuickField name="pictureURL"}}
 				{{> afQuickField name="phone"}}
 				{{> afQuickField name="email"}}
 				{{> afQuickField name="country" options="allowed"}}
 				{{> afQuickField name="city" options="allowed"}}
+				{{> afQuickField name="languages"}}
 				{{> afQuickField name="remarks" options="allowed"}}
 				{{> afQuickField name="referrer" options="allowed"}}
 				{{> afQuickField name="status"}}
-				{{> afQuickField name="description"}}
 				{{> afQuickField name="feePerDay"}}
 				{{> afQuickField name="updatedAt"}}
 				{{> afQuickField name="createdAt"}}
 			</div>
-			<div class="col-sm-5">
-				{{> afQuickField name="highlights"}}
-				{{> afQuickField name="activities"}}
-				{{> afQuickField name="inclusions"}}
-				{{> afQuickField name="exclusions"}}
-			</div>
-			<div class="col-sm-4">
-				{{> afQuickField name="languages"}}
-				{{> afQuickField name="experiences"}}
-				{{> afQuickField name="certifications"}}
-				{{> afQuickField name="tags"}}
-			</div>
 		</div>
 	</fieldset>
 	<div class="form-group">
-		<button type="submit" class="btn btn-success">
+		{{#if isActivePath path='/guides/new'}}
+		{{else}}
+			{{#if this.isPublished}}
+				<a id="unPublishButton" class="btn btn-default pull-right">Unpublish Guide</a>
+			{{else}}
+				<a id="publishButton" class="btn btn-default pull-right">Publish Guide</a>
+			{{/if}}
+		{{/if}}
+		<button type="submit" class="btn btn-success pull-right" style="margin-right: 10px;">
 			{{#if isActivePath path='/guides/new'}}
 				Add Guide
 			{{else}}
 				Update
 			{{/if}}
 		</button>
-		{{#if isActivePath path='/guides/new'}}
-		{{else}}
-			{{#if this.isPublished}}
-				<a id="unPublishButton" class="btn btn-default">Unpublish Guide</a>
-			{{else}}
-				<a id="publishButton" class="btn btn-default">Publish Guide</a>
-			{{/if}}
-		{{/if}}
-
 	</div>
 	{{/autoForm}}
 

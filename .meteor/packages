@@ -40,3 +40,5 @@ cfs:standard-packages
 cfs:gridfs
 cfs:autoform
 sjors:meteor-masonry
+cfs:s3
+imsky:holder
