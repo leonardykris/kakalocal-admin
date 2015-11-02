@@ -2,15 +2,12 @@ Meteor.methods({
 	submitForm: function(doc) {
 		console.log("Client has called submitForm method.")
 		if (doc) {
-			// Temporarily halted
-			// check(doc, {
-			// 	_id: String,
-			// 	type: String,
-			// 	firstName: String,
-			// 	lastName: String,
-			// 	pictureURL: String,
-			// 	email: String,
-			// });
+			// try {
+			// 	check(doc, Schemas.GuideForm);
+			// 	Schemas.GuideForm.clean(doc);
+			// } catch (e) {
+			// 	throw new Meteor.Error(e);
+			// }
 			if (doc._id) {
 				if (Guides.findOne({ _id: doc._id })) {
 					console.log(doc._id + " exists! It was last updated on " + doc.updatedAt + ".");

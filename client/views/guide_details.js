@@ -10,6 +10,18 @@ Template.guideDetails.onRendered(function() {
   // Change the colors of the + and - buttons
 	$('.autoform-add-item').removeClass('btn-primary').addClass('btn-default');
 	$('.autoform-remove-item').removeClass('btn-primary').addClass('btn-default');
+
+  AutoForm.addHooks(
+    ["updateGuideForm"],
+    {
+      before   : {
+        method: CfsAutoForm.Hooks.beforeInsert
+      },
+      after    : {
+        method: CfsAutoForm.Hooks.afterInsert
+      }
+    }
+  );
 });
 
 Template.guideDetails.events({

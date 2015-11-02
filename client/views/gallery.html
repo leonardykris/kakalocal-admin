@@ -1,0 +1,12 @@
+<template name="gallery">
+<div class="container">
+  <div class="row grid js-masonry" style="margin-top: 40px; margin-bottom: 80px;" data-masonry-options='{ "itemSelector": ".grid-item", "columnWidth": 200 }'>
+    {{#each images}}
+      <div class="col-sm-4 grid-item">
+        <!-- <p>URL: {{this.url}}</p> -->
+        <img src="{{this.url}}" alt="image" class="img img-responsive">
+      </div>
+    {{/each}}
+  </div>
+</div>
+</template>

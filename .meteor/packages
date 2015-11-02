@@ -36,3 +36,7 @@ miro:mailchimp
 email
 alanning:roles
 chuangbo:marked
+cfs:standard-packages
+cfs:gridfs
+cfs:autoform
+sjors:meteor-masonry
