@@ -36,3 +36,10 @@ miro:mailchimp
 email
 alanning:roles
 chuangbo:marked
+cfs:standard-packages
+cfs:gridfs
+cfs:autoform
+cfs:s3
+imsky:holder
+chrismbeckett:toastr
+sacha:spin

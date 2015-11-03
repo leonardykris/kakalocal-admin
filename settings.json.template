@@ -1,0 +1,5 @@
+{
+  "AWSAccessKeyId" : "Put the access key id from credentials.csv here",
+  "AWSSecretAccessKey" : "Put the secret access key from crendentials.csv here",
+  "AWSBucket" : "Put the name of your bucket here"
+}
